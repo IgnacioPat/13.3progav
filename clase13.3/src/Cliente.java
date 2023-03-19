@@ -1,7 +1,10 @@
+import java.util.LinkedList;
+
 import javax.swing.JOptionPane;
 
 public class Cliente extends Persona{
-	
+//	LinkedList<Movimientos> mov = new LinkedList<Movimientos>();
+
 	private int cuenta;
 	private double saldo;
 	
@@ -35,8 +38,10 @@ public class Cliente extends Persona{
 			if(cajero.getSaldo()>=monto) {
 			this.setSaldo(this.getSaldo()-monto);
 			cajero.setSaldo(cajero.getSaldo()-monto);
-			return "Se retiro³: "+monto+ " de la cuenta: "+this.getCuenta() 
-			+  " y el saldo restante es: " + this.getSaldo();
+			return "Se retiro³: $"+monto+ " de la cuenta: "+this.getCuenta() 
+			+  " y el saldo restante es:$" + this.getSaldo();
+		//	Movimientos movi6 = new Movimientos(5000);
+		//	mov.add(movi6);
 			}else {
 				return "El cajero no tiene suficiente dinero";
 			}
@@ -51,6 +56,19 @@ public class Cliente extends Persona{
 		
 	cuenta= Integer.parseInt(JOptionPane.showInputDialog(null,"introduzca nuevo pin"));
 		return cuenta;
+	}
+	
+	
+	
+	public boolean login (int pin) {
+if (pin==this.getCuenta()) {
+			
+			return true;
+			
+		}else {
+			
+			return false;
+		}
 	}
 	
 }

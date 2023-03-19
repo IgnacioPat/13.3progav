@@ -25,11 +25,29 @@ public class Admin extends Persona{
 	public int agregarDinero(int cant,Cajero cajero) {
 		
 	do {
-		cant=Integer.parseInt(JOptionPane.showInputDialog(null,"Ingresar cant de dinero a agregar"));
+		cant=Integer.parseInt(JOptionPane.showInputDialog(null,"Hola "+ this.getNombre()+" "+this.getApellido()+"\nIngrese cantidad de dinero a agregar"));
+	if (cant<=0) {
+		JOptionPane.showMessageDialog(null, "Ingrese un monto valido");
+	}
 	} while (cant<=0);
-		
+	JOptionPane.showMessageDialog(null, "Se ingreso $"+cant+" al cajero");
 	cajero.setSaldo(cajero.getSaldo()+cant);
 		return cant;
 		
 	}
+	
+	public boolean loginEmp (int contra) {
+		if (contra==this.getContras()) {
+					
+					return true;
+					
+				}else {
+					
+					return false;
+				}
+			}
+	
+	
+	
+	
 }

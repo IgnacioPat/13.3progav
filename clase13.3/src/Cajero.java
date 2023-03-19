@@ -18,7 +18,7 @@ public class Cajero {
 
 	@Override
 	public String toString() {
-		return "Cajero saldo :" + saldo + "]";
+		return "Saldo del cajero $" + saldo ;
 	} 
 	
 	
