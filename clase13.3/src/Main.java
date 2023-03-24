@@ -13,7 +13,7 @@ public class Main {
 		Admin Pepe = new Admin("Pepe", "Argento", 777);
 		Cajero cajero = new Cajero(5000);
 
-		String[] opc = { "Retirar dinero (cliente)", "Cambiar Pin (cliente)","Ver movimientos (cliente)", "Agregar dinero al cajero (admin)", "Ver saldo de este cajero",
+		String[] opc = { "Retirar dinero (cliente)", "Cambiar Pin (cliente)","Ver movimientos (cliente)", "Agregar dinero al cajero (admin)", "Ver saldo de este cajero (admin)",
 				"Salir" };
 		String[] dinero = { "100", "200", "500", "1000", "2000", "5000","Otros montos" };
 		int pin;
@@ -106,11 +106,18 @@ public class Main {
 				if (Pepe.loginEmp(contra)) {
 					Pepe.agregarDinero(0, cajero);
 				} else {
-					JOptionPane.showMessageDialog(null, "Pin incorrecto");
+					JOptionPane.showMessageDialog(null, "Incorrecto, intentelo mas tarde");
 				}
 				break;
-			case 4:
-				JOptionPane.showMessageDialog(null, " El cajero tiene : $" + cajero.getSaldo());
+			case 4:	
+				contra= Integer.parseInt(JOptionPane.showInputDialog(null, "Hola. ingrese su constraseña de administrador (Pista : "+Pepe.getContras()+")"));
+				if (contra!=Pepe.getContras()) {
+					JOptionPane.showMessageDialog(null, "Incorrecto, intentelo mas tarde");
+				} else {
+					Pepe.loginEmp(contra);
+					JOptionPane.showMessageDialog(null, " El cajero tiene : $" + cajero.getSaldo());
+				}
+				
 				break;
 			case 5:
 				JOptionPane.showMessageDialog(null, "Saliendo... Gracias por elegir nuestro servicio");
